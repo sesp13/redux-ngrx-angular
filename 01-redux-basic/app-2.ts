@@ -1,10 +1,12 @@
-// Redux in one file !!
-
 // Actions
-interface Action {
-  type: string;
-  payload?: any;
-}
+import {
+  incrementerAction,
+  decrementerAction,
+  multiplyAction,
+  divideAction,
+  resetAction,
+} from './counter/counter.actions';
+import { Action } from './ngrx-fake/ngrx';
 
 function reducer(state = 10, action: Action) {
   switch (action.type) {
@@ -20,32 +22,17 @@ function reducer(state = 10, action: Action) {
     case 'DIVIDE':
       return state / action.payload;
 
+    case 'RESET':
+      return (state = 0);
+
     default:
       return state;
   }
-
 }
 
 // Use reducer
-const incrementerAction: Action = {
-  type: 'INCREMENT',
-};
-
-const decrementerAction: Action = {
-  type: 'DECREMENT',
-};
-
-const multiplyAction: Action = {
-  type: 'MULTIPLY',
-  payload: 2,
-};
-
-const divideAction: Action = {
-  type: 'DIVIDE',
-  payload: 5,
-};
-
 console.log(reducer(10, incrementerAction)); // 11
 console.log(reducer(10, decrementerAction)); // 9
 console.log(reducer(10, multiplyAction)); // 20
 console.log(reducer(10, divideAction)); // 2
+console.log(reducer(10, resetAction)); // 0
