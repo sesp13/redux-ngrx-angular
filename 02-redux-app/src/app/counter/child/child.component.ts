@@ -1,32 +1,29 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/app.reducers';
+import { divide, multiply } from '../counter.actions';
 
 @Component({
   selector: 'app-child',
   templateUrl: './child.component.html',
   styles: [],
 })
-export class ChildComponent {
-  @Input() counter: number = 0;
-  @Output() counterChange = new EventEmitter<number>();
+export class ChildComponent implements OnInit {
+  counter: number = 0;
 
-  constructor() {}
+  constructor(private store: Store<AppState>) {}
+
+  ngOnInit(): void {
+    this.store
+      .select('counter')
+      .subscribe((counter) => (this.counter = counter));
+  }
 
   multiply() {
-    this.counter *= 2;
-    this.emitCounter();
+    this.store.dispatch(multiply({ number: 2 }));
   }
 
   divide() {
-    this.counter /= 2;
-    this.emitCounter();
-  }
-
-  resetGrandChild(counter: number) {
-    this.counter = counter;
-    this.emitCounter();
-  }
-
-  emitCounter() {
-    this.counterChange.emit(this.counter);
+    this.store.dispatch(divide({ number: 2 }));
   }
 }
