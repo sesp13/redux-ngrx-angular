@@ -1,5 +1,5 @@
 import { ActionReducerMap } from '@ngrx/store';
-import { ValidFilters } from './filter/filter.actions';
+import { ValidFilters } from './filter/filter.type';
 import { filterReducer } from './filter/filter.reducer';
 import { Todo } from './todos/models/todo.model';
 import { todoReducer } from './todos/todo.reducer';

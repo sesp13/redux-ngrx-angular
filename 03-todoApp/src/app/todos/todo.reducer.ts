@@ -1,6 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
 import { Todo } from './models/todo.model';
 import {
+  clearCompletedTodos,
   createTodo,
   deleteTodo,
   editTodo,
@@ -32,7 +33,10 @@ const _todoReducer = createReducer(
     state.map((todo) => {
       return { ...todo, completed };
     })
-  )
+  ),
+  on(clearCompletedTodos, (state) => {
+    return state.filter((todo) => !todo.completed);
+  })
 );
 
 export function todoReducer(state: any, action: any) {

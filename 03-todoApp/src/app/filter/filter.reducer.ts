@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 import { Action } from 'rxjs/internal/scheduler/Action';
-import { setFilter, ValidFilters } from './filter.actions';
+import { setFilter } from './filter.actions';
 
 export const initialState = 'all';
 
