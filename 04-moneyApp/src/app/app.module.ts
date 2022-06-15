@@ -44,8 +44,4 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {
-  constructor() {
-    console.log(environment);
-  }
-}
+export class AppModule {}
