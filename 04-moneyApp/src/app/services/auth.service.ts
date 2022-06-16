@@ -12,6 +12,11 @@ import { parseFirebaseUser, User } from '../models/user.model';
 })
 export class AuthService {
   private userSubscription?: Subscription;
+  private _user?: User;
+
+  get user(): User | undefined {
+    return { ...this._user };
+  }
 
   constructor(
     private auth: AngularFireAuth,
@@ -27,10 +32,12 @@ export class AuthService {
           .valueChanges()
           .subscribe((dbUser) => {
             const user = parseFirebaseUser(dbUser);
+            this._user = user;
             this.store.dispatch(setUser({ user }));
           });
       } else {
         this.userSubscription?.unsubscribe();
+        this._user = undefined;
         this.store.dispatch(unSetUser());
       }
     });
