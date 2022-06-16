@@ -5,6 +5,7 @@ import { Store } from '@ngrx/store';
 import { map, Subscription } from 'rxjs';
 import { AppState } from '../app.reducer';
 import { setUser, unSetUser } from '../auth/auth.actions';
+import { unsetItems } from '../income-expense/income-expense.actions';
 import { parseFirebaseUser, User } from '../models/user.model';
 
 @Injectable({
@@ -39,6 +40,7 @@ export class AuthService {
         this.userSubscription?.unsubscribe();
         this._user = undefined;
         this.store.dispatch(unSetUser());
+        this.store.dispatch(unsetItems());
       }
     });
   }

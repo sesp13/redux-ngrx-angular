@@ -53,7 +53,7 @@ export class IncomeExpenseComponent implements OnInit, OnDestroy {
       type: this.transactionType,
     };
     this.incomeExpenseService
-      .createIncomeExpense(movement)
+      .create(movement)
       .then(() => {
         this.store.dispatch(stopLoading());
         this.moneyForm.reset();
