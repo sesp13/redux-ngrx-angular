@@ -18,9 +18,9 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { IncomeOutcomeComponent } from './income-outcome/income-outcome.component';
-import { StatsComponent } from './income-outcome/stats/stats.component';
-import { DetailComponent } from './income-outcome/detail/detail.component';
+import { IncomeExpenseComponent } from './income-expense/income-expense.component';
+import { StatsComponent } from './income-expense/stats/stats.component';
+import { DetailComponent } from './income-expense/detail/detail.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
@@ -31,7 +31,7 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
-    IncomeOutcomeComponent,
+    IncomeExpenseComponent,
     StatsComponent,
     DetailComponent,
     FooterComponent,

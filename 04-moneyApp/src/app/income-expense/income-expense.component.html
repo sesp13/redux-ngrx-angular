@@ -1,0 +1,73 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Add income / expense</h4>
+        <p class="card-description">Please provide the amount and type</p>
+
+        <form [formGroup]="moneyForm" (ngSubmit)="submitMoneyForm()">
+          <div class="form-group">
+            <label>Description</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="A new money movements"
+              formControlName="description"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Ammount</label>
+            <input
+              type="number"
+              class="form-control"
+              placeholder="5"
+              formControlName="ammount"
+            />
+            <p>It must be a positive ammount</p>
+          </div>
+
+          <div class="form-group">
+            <label>Tipo</label>
+            <br />
+            <button
+              type="button"
+              class="btn btn-primary btn-block"
+              (click)="transactionType = 'expense'"
+              *ngIf="transactionType == 'income'"
+            >
+              Income
+            </button>
+            <button
+              type="button"
+              class="btn btn-warning btn-block"
+              (click)="transactionType = 'income'"
+              *ngIf="transactionType == 'expense'"
+            >
+              Expense
+            </button>
+          </div>
+
+          <hr />
+          <button
+            type="submit"
+            class="btn btn-success mr-2"
+            [disabled]="moneyForm.invalid"
+          >
+            <i class="fa fa-save"></i>
+            Agregar
+          </button>
+
+          <!-- 
+              <button disabled class="btn btn-success mr-2">
+                <i class="fa fa-spin fa-sync"></i>
+                Espere por favor...
+              </button> 
+            -->
+
+          <button type="reset" class="btn btn-light">Cancelar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

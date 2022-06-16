@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
-import { DetailComponent } from '../income-outcome/detail/detail.component';
-import { IncomeOutcomeComponent } from '../income-outcome/income-outcome.component';
-import { StatsComponent } from '../income-outcome/stats/stats.component';
+import { DetailComponent } from '../income-expense/detail/detail.component';
+import { IncomeExpenseComponent } from '../income-expense/income-expense.component';
+import { StatsComponent } from '../income-expense/stats/stats.component';
 
 export const dashboardRoutes: Routes = [
   { path: '', component: StatsComponent },
-  { path: 'income-outcome', component: IncomeOutcomeComponent },
+  { path: 'income-expense', component: IncomeExpenseComponent },
   { path: 'detail', component: DetailComponent },
 ];
