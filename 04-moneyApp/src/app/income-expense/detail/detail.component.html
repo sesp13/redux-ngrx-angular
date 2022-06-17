@@ -15,7 +15,7 @@
           </thead>
 
           <tbody>
-            <tr *ngFor="let item of movements">
+            <tr *ngFor="let item of movements | orderMovement">
               <td>{{ item.description }}</td>
               <td>{{ item.ammount | currency }}</td>
               <td

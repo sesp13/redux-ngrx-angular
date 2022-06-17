@@ -24,6 +24,8 @@ import { DetailComponent } from './income-expense/detail/detail.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
+import { OrderMovementPipe } from './income-expense/pipes/order-movement.pipe';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,7 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
     FooterComponent,
     NavbarComponent,
     SidebarComponent,
+    OrderMovementPipe,
   ],
   imports: [
     BrowserModule,
@@ -51,6 +54,7 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
       logOnly: environment.production, // Restrict extension to log-only mode
       autoPause: true, // Pauses recording actions and state changes when the extension window is not open
     }),
+    NgChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
