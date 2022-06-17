@@ -41,6 +41,7 @@ export class StatsComponent implements OnInit, OnDestroy {
   }
 
   generateStats(movements: IncomeExpense[]) {
+    this.resetStats();
     for (const movement of movements) {
       if (movement.type == 'income') {
         this.totalIncome += movement?.ammount ?? 0;
@@ -53,5 +54,12 @@ export class StatsComponent implements OnInit, OnDestroy {
     this.doughnutChartData.datasets = [
       { data: [this.totalIncome, this.totalExpenses] },
     ];
+  }
+
+  resetStats() {
+    this.incomes = 0;
+    this.expenses = 0;
+    this.totalIncome = 0;
+    this.totalExpenses = 0;
   }
 }
