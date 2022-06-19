@@ -18,27 +18,15 @@ import { AppComponent } from './app.component';
 
 // Modules
 import { AuthModule } from './auth/auth.module';
-import { SharedModule } from './shared/shared.module';
-
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { IncomeExpenseComponent } from './income-expense/income-expense.component';
-import { StatsComponent } from './income-expense/stats/stats.component';
-import { DetailComponent } from './income-expense/detail/detail.component';
-import { OrderMovementPipe } from './income-expense/pipes/order-movement.pipe';
-import { NgChartsModule } from 'ng2-charts';
+import { IncomeExpenseModule } from './income-expense/income-expense.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent,
-    IncomeExpenseComponent,
-    StatsComponent,
-    DetailComponent,
-    OrderMovementPipe,
   ],
   imports: [
     AuthModule,
-    SharedModule,
+    IncomeExpenseModule,
     AppRoutingModule,
     BrowserModule,
     ReactiveFormsModule,
@@ -51,7 +39,7 @@ import { NgChartsModule } from 'ng2-charts';
       logOnly: environment.production, // Restrict extension to log-only mode
       autoPause: true, // Pauses recording actions and state changes when the extension window is not open
     }),
-    NgChartsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent],
