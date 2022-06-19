@@ -15,35 +15,32 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './auth/login/login.component';
-import { RegisterComponent } from './auth/register/register.component';
+
+// Modules
+import { AuthModule } from './auth/auth.module';
+import { SharedModule } from './shared/shared.module';
+
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { IncomeExpenseComponent } from './income-expense/income-expense.component';
 import { StatsComponent } from './income-expense/stats/stats.component';
 import { DetailComponent } from './income-expense/detail/detail.component';
-import { FooterComponent } from './shared/footer/footer.component';
-import { NavbarComponent } from './shared/navbar/navbar.component';
-import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { OrderMovementPipe } from './income-expense/pipes/order-movement.pipe';
 import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    RegisterComponent,
     DashboardComponent,
     IncomeExpenseComponent,
     StatsComponent,
     DetailComponent,
-    FooterComponent,
-    NavbarComponent,
-    SidebarComponent,
     OrderMovementPipe,
   ],
   imports: [
-    BrowserModule,
+    AuthModule,
+    SharedModule,
     AppRoutingModule,
+    BrowserModule,
     ReactiveFormsModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase),
