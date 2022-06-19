@@ -13,6 +13,8 @@ import { NgChartsModule } from 'ng2-charts';
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { DashboardRoutingModule } from '../dashboard/dashboard-routing.module';
+import { StoreModule } from '@ngrx/store';
+import { incomeExpenseReducer } from './income-expense.reducer';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { DashboardRoutingModule } from '../dashboard/dashboard-routing.module';
     RouterModule,
     NgChartsModule,
     SharedModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    StoreModule.forFeature('incomeExpense', incomeExpenseReducer)
   ],
 })
 export class IncomeExpenseModule {}

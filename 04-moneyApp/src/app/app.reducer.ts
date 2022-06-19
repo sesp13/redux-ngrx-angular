@@ -9,11 +9,9 @@ import { UiState, uiReducer } from './shared/ui.reducer';
 export interface AppState {
   ui: UiState;
   auth: AuthState;
-  incomeExpense: IncomeExpenseState;
 }
 
 export const appReducers: ActionReducerMap<AppState> = {
   ui: uiReducer,
   auth: authReducer,
-  incomeExpense: incomeExpenseReducer,
 };

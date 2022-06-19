@@ -1,4 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
+import { AppState } from '../app.reducer';
 import { IncomeExpense } from '../models/incomeExpense.model';
 import { setItems, unsetItems } from './income-expense.actions';
 
@@ -9,6 +10,11 @@ export interface IncomeExpenseState {
 export const initialState: IncomeExpenseState = {
   items: [],
 };
+
+// This is the AppState used by IncomeExpenses components
+export interface AppStateIncomeExpense extends AppState {
+  incomeExpense: IncomeExpenseState;
+}
 
 const _incomeExpenseReducer = createReducer(
   initialState,

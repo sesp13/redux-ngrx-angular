@@ -5,6 +5,7 @@ import { AppState } from 'src/app/app.reducer';
 import { IncomeExpense } from 'src/app/models/incomeExpense.model';
 import { IncomeExpenseService } from 'src/app/services/income-expense.service';
 import Swal from 'sweetalert2';
+import { AppStateIncomeExpense } from '../income-expense.reducer';
 
 @Component({
   selector: 'app-detail',
@@ -18,7 +19,7 @@ export class DetailComponent implements OnInit, OnDestroy {
 
   constructor(
     private incomeExpenseService: IncomeExpenseService,
-    private store: Store<AppState>
+    private store: Store<AppStateIncomeExpense>
   ) {}
 
   ngOnInit(): void {

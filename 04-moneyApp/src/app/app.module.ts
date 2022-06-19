@@ -18,7 +18,6 @@ import { AppComponent } from './app.component';
 
 // Modules
 import { AuthModule } from './auth/auth.module';
-import { IncomeExpenseModule } from './income-expense/income-expense.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +25,6 @@ import { IncomeExpenseModule } from './income-expense/income-expense.module';
   ],
   imports: [
     AuthModule,
-    IncomeExpenseModule,
     AppRoutingModule,
     BrowserModule,
     ReactiveFormsModule,

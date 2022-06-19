@@ -4,6 +4,7 @@ import { ChartData, ChartType } from 'chart.js';
 import { Subscription } from 'rxjs';
 import { AppState } from 'src/app/app.reducer';
 import { IncomeExpense } from 'src/app/models/incomeExpense.model';
+import { AppStateIncomeExpense } from '../income-expense.reducer';
 
 @Component({
   selector: 'app-stats',
@@ -26,7 +27,7 @@ export class StatsComponent implements OnInit, OnDestroy {
   };
   doughnutChartType: ChartType = 'doughnut';
 
-  constructor(private store: Store<AppState>) {}
+  constructor(private store: Store<AppStateIncomeExpense>) {}
 
   ngOnInit(): void {
     this.movementsSubs = this.store

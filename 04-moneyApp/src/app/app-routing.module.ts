@@ -9,6 +9,15 @@ import { AuthGuard } from './guards/auth.guard';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  {
+    path: '',
+    loadChildren: () =>
+      import('./income-expense/income-expense.module').then(
+        (m) => m.IncomeExpenseModule
+      ),
+    canActivate: [AuthGuard],
+    canLoad: [AuthGuard],
+  },
   { path: '**', redirectTo: '' },
 ];
 
