@@ -13,19 +13,24 @@ import { AppState } from 'src/app/store/app.reducers';
 export class ListComponent implements OnInit, OnDestroy {
   users: User[] = [];
   usersSubs?: Subscription;
+  loading: boolean = false;
+  error: any;
 
   constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
-    this.usersSubs = this.store.select('users').subscribe(({ users }) => {
-      this.users = users;
-    });
+    this.usersSubs = this.store
+      .select('users')
+      .subscribe(({ users, loading, error }) => {
+        this.users = users;
+        this.loading = loading;
+        this.error = error;
+      });
 
     this.store.dispatch(loadUsers());
   }
 
   ngOnDestroy(): void {
-      this.usersSubs?.unsubscribe();
+    this.usersSubs?.unsubscribe();
   }
-
 }
