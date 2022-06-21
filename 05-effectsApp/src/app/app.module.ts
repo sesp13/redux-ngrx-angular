@@ -11,6 +11,8 @@ import { UsersModule } from './users/users.module';
 // NgRx
 import { StoreModule } from '@ngrx/store';
 import { appReducers } from './store/app.reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { EffectsArray } from './store/effects';
 
 // Components
 import { AppComponent } from './app.component';
@@ -25,6 +27,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     HttpClientModule,
     StoreModule.forRoot(appReducers),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    EffectsModule.forRoot(EffectsArray),
   ],
   providers: [],
   bootstrap: [AppComponent],
